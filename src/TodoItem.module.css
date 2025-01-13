@@ -1,0 +1,46 @@
+/* $first-color: #f56476;
+$second-color: #553555;
+$third-color: #b2b5c8;
+$forth-color: #bfd5e2;
+$fifth-color: #c7ebf0; */
+.todo-item{
+    display:flex;
+    align-items: left;
+    background-color: #b2b5c8 ;
+    border-radius: 5px;
+    padding:15px;
+    margin:5px 0;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.todo-item label{
+    position: relative;
+    display: inline-block;
+    color: #553555;
+    padding-left:20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.todo-item.completed label {
+    color:#c7ebf0;
+}
+
+.todo-item.completed::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0%;
+    height: 2px;
+    background:black;
+    transition: width 0.5s ease-in-out;
+    transform: translateY(-50%);
+}
+
+.todo-item.completed span::after{
+    width: 100%;
+}
+.todo-item.checkbox{
+    margin-right: 20px;
+}

@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './TodoItem.module.css';
 
 function TodoItem({task, toggleTaskCompletion}){
     return (
-        <li>
-            <input type="checkbox" checked={task.completed} onChange={() => toggleTaskCompletion(task.id)}/>
-            <span>  {task.name}</span>
+        <li className={`${styles['todo-item']} ${task.completed ? styles.completed : ""}`}>
+            <input type="checkbox" checked={task.completed} id={task.id} onChange={() => toggleTaskCompletion(task.id)} className="checkbox"/>
+            <label for={task.id}>{task.name}</label>
         </li>
     );
 };

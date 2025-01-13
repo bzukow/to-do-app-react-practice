@@ -15,10 +15,15 @@ function App() {
         );
         setTasks(updatedTasks);
     }
+    const addTask = (taskName) =>
+    {
+        const newTask = { id: tasks.length + 1, name: taskName};
+        setTasks([...tasks, newTask]);
+    }
     return (
         <div className="App">
             <header className="App-header">
-                <TodoList tasks={tasks} toggleTaskCompletion={toggleTaskCompletion}/>
+                <TodoList tasks={tasks} toggleTaskCompletion={toggleTaskCompletion} addTask={addTask}/>
             </header>
         </div>
     );
