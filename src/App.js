@@ -1,12 +1,12 @@
 import "./App.css";
 import TodoList from "./TodoList";
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 function App() {
     const [tasks, setTasks] = useState([
-        {   id: 1, name: "Zadanie 1", completed: false   },
-        {   id: 2, name: "Zadanie 2", completed: false   },
-        {   id: 3, name: "Zadanie 3", completed: false   }
+        {   id: 3, name: "Clean the floor", completed: false   },
+        {   id: 2, name: "Cook the meal", completed: false   },
+        {   id: 1, name: "Do the laundry", completed: false   }
     ]);
 
     function toggleTaskCompletion(id){
@@ -18,8 +18,10 @@ function App() {
     const addTask = (taskName) =>
     {
         const newTask = { id: tasks.length + 1, name: taskName};
-        setTasks([...tasks, newTask]);
+        setTasks([newTask, ...tasks]);
     }
+    
+
     return (
         <div className="App">
             <header className="App-header">

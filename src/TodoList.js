@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import TodoItem from './TodoItem';
+import styles from "./TodoList.module.css";
 
 function TodoList({tasks, toggleTaskCompletion, addTask}){
     const [newTask, setNewTask] = useState('');
@@ -12,9 +13,11 @@ function TodoList({tasks, toggleTaskCompletion, addTask}){
             alert("You can't add an empty task");
         }
     }
+   
+
     return (
-        <div>
-            <h2>
+        <div className={styles['todo-list']}>
+            <h2 className={styles["h2-custom"]}>
                 Tasks to do &#10024;
             </h2>
             <form onSubmit={handleSubmit}>

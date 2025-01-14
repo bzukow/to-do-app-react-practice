@@ -1,17 +1,30 @@
-/* $first-color: #f56476;
+/* $first-color: #6b5b81;
 $second-color: #553555;
 $third-color: #b2b5c8;
 $forth-color: #bfd5e2;
 $fifth-color: #c7ebf0; */
 .todo-item{
+    opacity:0;
+    transform: translateY(-20px);
+    animation: slideIn 0.3s ease-out forwards;
     display:flex;
-    align-items: left;
+    align-items: center;
     background-color: #b2b5c8 ;
-    border-radius: 5px;
+    border-radius: 10px;
     padding:15px;
-    margin:5px 0;
-    font-size: 24px;
-    transition: all 0.3s ease;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+@keyframes slideIn{
+    0%{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
 .todo-item label{
@@ -40,6 +53,51 @@ $fifth-color: #c7ebf0; */
 
 .todo-item.completed span::after{
     width: 100%;
+}
+input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-progress-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    background: #eee;
+    outline: none;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+input[type="checkbox"]:checked{
+    background-color: #553555;
+}
+input[type="checkbox"]:checked::after{
+    content: '';
+    position: absolute;
+    top: 3px;
+    left:3px;
+    width:5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+input[type="checkbox"]:not(:checked)::after{
+    transform: scale(0.8);
+}
+label{
+    /* font-family: "Playwrite AU SA", serif; */
+    font-family: "Quicksand", serif;
+    font-size:16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3, text-decoration 0.3s;
+}
+.todo-item.completed label{
+    color:#bfd5e2;
+    text-decoration: line-through;
 }
 .todo-item.checkbox{
     margin-right: 20px;
