@@ -1,0 +1,24 @@
+{
+  "tasks": [
+    {
+      "id": "22ec2cde-c0b8-417d-bdbb-53ca412f8111",
+      "name": "Buy a gift for F.",
+      "completed": false
+    },
+    {
+      "id": "1490a343-cfda-4a62-b53a-bd6b3a8a727a",
+      "name": "Do the laundry",
+      "completed": false
+    },
+    {
+      "id": "784a3ee3-ff26-446f-95ea-cf3db6f3cc90",
+      "name": "Go shopping ",
+      "completed": false
+    },
+    {
+      "id": "5395f021-a273-4060-90d9-ac499d2d93a0",
+      "name": "Clean the kitchen",
+      "completed": false
+    }
+  ]
+}

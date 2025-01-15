@@ -5,11 +5,13 @@
     /* max-height: 400px;
     overflow-y: auto; */
     width:50%;
+    box-sizing: border-box;
     transition: transform 0.3s ease-in-out forwards;
 }
 @media (max-width: 768px) {
     .todo-list{
-        width:100%;
+        width: 90%;
+        box-sizing: border-box;
     }
 }
 .todo-list ul{
@@ -46,4 +48,10 @@ input[type="text"]::placeholder{
 }
 input[type="text"]:focus::placeholder{
     color:transparent;
+}
+.todo-list-loading{
+    font-weight: bold;
+    color: #eee;
+    font-family: "Quicksand", serif;
+    font-size: 16px;
 }

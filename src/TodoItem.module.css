@@ -102,3 +102,49 @@ label{
 .todo-item.checkbox{
     margin-right: 20px;
 }
+.delete-btn {
+    opacity: 0;
+    transform: scale(0.85);
+    pointer-events: none; /* Zapobiega interakcji z ukrytym przyciskiem */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    
+    .delete-btn {
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .todo-item:hover .delete-btn {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: all; 
+    }
+}
+
+@media (max-width: 767px) {
+    .todo-item{
+        transition: transform 0.3s ease-out;
+        cursor: pointer;
+    }
+    .todo-item.swiped {
+        transform: translateX(-100%); /* Przesunięcie elementu w bok */
+        opacity: 0;
+    }
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+}
+
+.delete-btn svg {
+    color: #87769f; /* Wstaw tu dowolny kolor */
+    transition: color 0.3s ease;
+}
+
+.delete-btn:hover svg {
+    color: #553555; /* Zmieniony kolor na hover */
+}
