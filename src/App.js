@@ -47,7 +47,6 @@ function App() {
 
     const addTask = (taskName) => {
         const newTask = { id: uuidv4(), name: taskName, completed: false };
-        const toUpdateTasks = [newTask, ...tasks];
         
         fetch("http://localhost:3001/tasks", {
             method: "POST",
@@ -57,14 +56,13 @@ function App() {
             .then((response) => response.json())
             .then((data) => setTasks((tasks) => [data, ...tasks]));
     };
-
+    // ideally i would prefer to have a nice animation for both mobile and desktop when the task is being deleted but after trying a couple of posibilities it is not really working the way i wanted so i will just leave the animation part for a different practice project)
     function deleteTask(id) {
         const updatedTasks = tasks.filter((task) => task.id !== id);
         setTasks(updatedTasks);
         fetch(`http://localhost:3001/tasks/${id}`, {
             method: "DELETE",
         })
-        // .then(() => console.log("Task deleted"));
     }
     return (
         <div className="App">

@@ -14,6 +14,7 @@ $fifth-color: #c7ebf0; */
     padding:15px;
     box-sizing: border-box;
     width: 100%;
+    position: relative;
 }
 
 @keyframes slideIn{
@@ -27,13 +28,7 @@ $fifth-color: #c7ebf0; */
     }
 }
 
-.todo-item label{
-    position: relative;
-    display: inline-block;
-    color: #553555;
-    padding-left:20px;
-    transition: color 0.3s ease-in-out;
-}
+
 
 .todo-item.completed label {
     color:#c7ebf0;
@@ -87,17 +82,41 @@ input[type="checkbox"]:checked::after{
 input[type="checkbox"]:not(:checked)::after{
     transform: scale(0.8);
 }
-label{
+
+.todo-item label{
     /* font-family: "Playwrite AU SA", serif; */
+    color: #553555;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;  
+    max-width: calc(100% - 70px);
+    width: 100%;
+    text-align: start;
     font-family: "Quicksand", serif;
     font-size:16px;
     font-weight: bold;
     cursor: pointer;
-    transition: color 0.3, text-decoration 0.3s;
+    margin-left:20px;
+    box-sizing: border-box;
+    /* transition: color 0.3, text-decoration 0.3s; */
+    transition: color 0.3s ease-in-out;
 }
+.todo-item label span {
+    white-space: nowrap;
+    display: inline-block;
+}
+.todo-item:hover .scrollable {
+    animation: scrollLabel 10s linear infinite; 
+}
+
+
 .todo-item.completed label{
     color:#bfd5e2;
     text-decoration: line-through;
+    
+}
+.todo-item.completed label span{
+    display: block;
 }
 .todo-item.checkbox{
     margin-right: 20px;
@@ -105,10 +124,17 @@ label{
 .delete-btn {
     opacity: 0;
     transform: scale(0.85);
-    pointer-events: none; /* Zapobiega interakcji z ukrytym przyciskiem */
+    pointer-events: none; 
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
+@keyframes scrollLabel {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(calc(-100% + 350px));
+    }
+}
 @media (min-width: 768px) {
     
     .delete-btn {
@@ -124,15 +150,40 @@ label{
         pointer-events: all; 
     }
 }
-
+@media (max-width: 1258px) {
+    @keyframes scrollLabel {
+        0% {
+            transform: translateX(0); /* Początkowe ustawienie */
+        }
+        100% {
+            transform: translateX(calc(-100% + 200px));
+        }
+    }
+    
+}
+@media (hover: none) {
+    .scrollable {
+        animation: scrollLabel 10s linear infinite;
+    }
+}
 @media (max-width: 767px) {
+    @keyframes scrollLabel {
+        0% {
+            transform: translateX(0); /* Początkowe ustawienie */
+        }
+        100% {
+            /* transform: translateX(calc(-100% -50px)); Przewija na pełną szerokość */
+            transform: translateX(calc(-100% + 125px));
+        }
+    }
     .todo-item{
         transition: transform 0.3s ease-out;
         cursor: pointer;
     }
-    .todo-item.swiped {
-        transform: translateX(-100%); /* Przesunięcie elementu w bok */
+    .swiped {
+        transform: translateX(-100%); 
         opacity: 0;
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     }
 }
 
@@ -141,10 +192,10 @@ label{
 }
 
 .delete-btn svg {
-    color: #87769f; /* Wstaw tu dowolny kolor */
+    color: #87769f; 
     transition: color 0.3s ease;
 }
 
 .delete-btn:hover svg {
-    color: #553555; /* Zmieniony kolor na hover */
+    color: #553555;
 }

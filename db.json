@@ -1,28 +1,23 @@
 {
   "tasks": [
     {
-      "id": "22ec2cde-c0b8-417d-bdbb-53ca412f8111",
-      "name": "Buy a gift for F.",
+      "id": "e31fa137-8211-4825-ab5d-9abda5ee46f9",
+      "name": "Do the shopping",
       "completed": false
     },
     {
-      "id": "1490a343-cfda-4a62-b53a-bd6b3a8a727a",
-      "name": "Do the laundry",
+      "id": "48a8f5ad-2950-4a5b-9d0b-4d963ed3ef07",
+      "name": "Buy tikets",
       "completed": false
     },
     {
-      "id": "784a3ee3-ff26-446f-95ea-cf3db6f3cc90",
-      "name": "Go shopping ",
+      "id": "b3108939-20f1-443f-aabb-bfe0cc28bce8",
+      "name": "Clean the house",
       "completed": false
     },
     {
-      "id": "5395f021-a273-4060-90d9-ac499d2d93a0",
-      "name": "Clean the kitchen",
-      "completed": false
-    },
-    {
-      "id": "e0b1ff9f-f874-4360-acd1-5a1a5e345706",
-      "name": "Clean the living room",
+      "id": "125c59a2-1119-47e3-99f2-67dbe19113d7",
+      "name": "Need to write do aunt Marie to prepare a surprise birthday party for John",
       "completed": false
     }
   ]

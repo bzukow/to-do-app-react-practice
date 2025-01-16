@@ -12,7 +12,15 @@
     .todo-list{
         width: 90%;
         box-sizing: border-box;
+        padding: 10px;
     }
+    .todo-list ul{
+        margin-bottom: 0px;
+    }
+    .h2-custom{
+        margin: 15px 0px;
+    }
+
 }
 .todo-list ul{
     padding: unset;
