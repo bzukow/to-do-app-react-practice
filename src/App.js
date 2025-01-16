@@ -8,7 +8,10 @@ function App() {
     useEffect(() => {
         fetch("http://localhost:3001/tasks")
             .then((response) => response.json())
-            .then((data) => setTasks(data))
+            .then((data) => {
+                const reversedTasks = [...data].reverse();
+                setTasks(reversedTasks);
+            })
             .catch((err) => console.error("Something got wrong 😅", err));
     }, []);
 
@@ -41,50 +44,18 @@ function App() {
             })
             .catch((err) => console.error("Update error: ", err));
     }
-    const deleteAllTasks = () => {
-        fetch('http://localhost:3001/tasks', {
-            method: 'GET', // Pobierz całą listę
-          })
-          .then(response => response.json())
-          .then(tasks => {
-            const deletePromises = tasks.map(task => {
-              return fetch(`http://localhost:3001/tasks/${task.id}`, {
-                method: 'DELETE',
-              });
-            });
-        
-            Promise.all(deletePromises)
-            //   .then(() => console.log("Wszystkie zadania zostały usunięte"))
-              .catch(error => console.error('Deleting task error:', error));
-          });
-      };
+
     const addTask = (taskName) => {
         const newTask = { id: uuidv4(), name: taskName, completed: false };
         const toUpdateTasks = [newTask, ...tasks];
-        deleteAllTasks();
-        const addPromises = toUpdateTasks.map(task => {
-            return fetch('http://localhost:3001/tasks', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(task), 
-            });
-          });
         
-          Promise.all(addPromises)
-            .then(() => setTasks(toUpdateTasks))
-            .catch(error => console.error('Task adding error:', error));
-        
-        // const newTask = { id: uuidv4(), name: taskName, completed: false };
-        // fetch("http://localhost:3001/tasks", {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(newTask),
-        // })
-        //     .then((response) => response.json())
-        //     .then((data) => setTasks((tasks) => [data, ...tasks]));
-      
+        fetch("http://localhost:3001/tasks", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newTask),
+        })
+            .then((response) => response.json())
+            .then((data) => setTasks((tasks) => [data, ...tasks]));
     };
 
     function deleteTask(id) {

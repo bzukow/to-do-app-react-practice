@@ -19,6 +19,11 @@
       "id": "5395f021-a273-4060-90d9-ac499d2d93a0",
       "name": "Clean the kitchen",
       "completed": false
+    },
+    {
+      "id": "e0b1ff9f-f874-4360-acd1-5a1a5e345706",
+      "name": "Clean the living room",
+      "completed": false
     }
   ]
 }
